@@ -69,10 +69,6 @@ This project provides a Python backend (FastAPI + LangGraph) with two collaborat
   - JSON: `{ "query": "What is xyz?", "max_web_results": 5, "max_rag_chunks": 5 }`
   - Returns executive `summary`, `sources`, `web_results`, `rag_passages`
 
-- **POST /api/chat**
-  - JSON: `{ "message": "Summarize ...", "conversation_id": "optional" }`
-  - Returns `response` and `intermediate_state`
-
 ## RAG & Embeddings Notes
 - Primary embeddings use SentenceTransformers (dim=768). If unavailable, it falls back to Google embeddings (when `GOOGLE_API_KEY` is set) and finally to a deterministic hash.
 - Pinecone index is auto-created if missing. Check `.env` for `PINECONE_INDEX` and region (`PINECONE_ENV`).
